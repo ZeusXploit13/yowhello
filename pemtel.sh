@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 set -e
 
 ######################################################################################
@@ -29,8 +28,8 @@ set -e
 #                                                                                    #
 ######################################################################################
 
-export GITHUB_SOURCE="v1.1.0"
-export SCRIPT_RELEASE="v1.1.0"
+export GITHUB_SOURCE="v1.1.1"
+export SCRIPT_RELEASE="v1.1.1"
 export GITHUB_BASE_URL="https://raw.githubusercontent.com/pterodactyl-installer/pterodactyl-installer"
 
 LOG_PATH="/var/log/pterodactyl-installer.log"
@@ -110,6 +109,9 @@ while [ "$done" == false ]; do
   [[ ! " ${valid_input[*]} " =~ ${action} ]] && error "Invalid option"
   [[ " ${valid_input[*]} " =~ ${action} ]] && done=true && IFS=";" read -r i1 i2 <<<"${actions[$action]}" && execute "$i1" "$i2"
 done
+
+# Remove lib.sh, so next time the script is run the, newest version is downloaded.
+rm -rf /tmp/lib.sh
 
 # Remove lib.sh, so next time the script is run the, newest version is downloaded.
 rm -rf /tmp/lib.sh
